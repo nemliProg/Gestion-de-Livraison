@@ -10,13 +10,13 @@ public class Manager {
     private int id;
     @Basic
     @Column(name = "name")
-    private int name;
+    private String name;
     @Basic
     @Column(name = "email")
-    private int email;
+    private String email;
     @Basic
     @Column(name = "password")
-    private int password;
+    private String password;
 
     public int getId() {
         return id;
@@ -26,27 +26,27 @@ public class Manager {
         this.id = id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(int email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -65,12 +65,5 @@ public class Manager {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + name;
-        result = 31 * result + email;
-        result = 31 * result + password;
-        return result;
-    }
+
 }
