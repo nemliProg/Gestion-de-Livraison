@@ -12,11 +12,11 @@ public class main {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestion_livraison");
             EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
-            CategorieVehicle categorieVehicle = new CategorieVehicle();
-            categorieVehicle.setType("Camion");
-            em.persist(categorieVehicle);
-            em.getTransaction().commit();
-            em.close();
-            emf.close();
+//            CategorieVehicle categorieVehicle = new CategorieVehicle();
+//            categorieVehicle.setType("Camion");
+//            em.persist(categorieVehicle);
+//            em.getTransaction().commit();
+//            em.close();
+//            emf.close();
         }
 }

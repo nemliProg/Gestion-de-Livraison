@@ -4,8 +4,169 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:x-on="http://java.sun.com/jsf/composite">
+<h:head>
+    <script type="text/javascript" src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"/>
+    <script defer="defer" type="text/javascript" src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"/>
+
+    <title>Jakarta EE 9 - Greeting</title>
+</h:head>
+<h:body>
+    <f:view x-data="{ open: false }">
+        <!--                <f:view-->
+        <!--                @click="open = true">Expand        </f:view>-->
+        <!--            <h:message value="test" onclick="open = !open" for="test"/>-->
+        <h:button value="test" x-on:click="open = !open" />
+        <!--                <h:inputText  value="azer"></h:inputText>-->
+        <h:inputText type="text"
+                     x-show="open"
+                     class="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+                     placeholder="Email"
+                     name="email"/>
+
+    </f:view>
+
+    <h:form prependId="false" action="/Auth" method="POST">
+
+        <div class="flex flex-col items-center  justify-between  mx-auto max-w-7xl lg:flex-row  ">
+
+        <div class="relative py-0  w-screen h-screen lg:py-20 bg-cover backdrop-blur-sm  ">
+
+
+
+
+        <div class="relative   mx-auto w-full max-w-2xl mt-20 lg:mt-0 lg:w-5/12">
+            <div class="relative z-10 flex flex-col items-start justify-start p-10 bg-white shadow-2xl rounded-xl">
+
+
+                <h4 class="w-full font-serif text-3xl my-2 font-medium leading-snug">choisissez le type de
+                    compte</h4>
+
+
+                <fieldset class="grid grid-cols-2 gap-4 mx-auto">
+                    <legend class="sr-only">Delivery</legend>
+                    <div>
+                        <h:inputText
+                                type="radio"
+                                name="role"
+                                value="ADMIN"
+                                id="DeliveryStandard"
+                                class="peer hidden [:checked_+_label_svg]:block"
+
+                        />
+
+                        <label
+                                for="DeliveryStandard"
+                                class="block cursor-pointer rounded-lg border border-gray-100 p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500"
+                        />
+                        <h:graphicImage class="w-28 h-28 rounded mx-2 "
+                                        value="https://www.w3schools.com/howto/img_avatar.png"
+                                        alt="Extra large avatar">
+
+                            <div class="flex items-center justify-between mx-auto mt-2">
+                                <p class="text-gray-700  align-center text-center w-full">Admin</p>
+
+                                <svg
+                                        class="hidden h-8 w-8 text-blue-600"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                >
+                                    <path
+                                            fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </div>
+
+
+                        </h:graphicImage>
+                    </div>
+
+                    <div>
+                        <input
+                                type="radio"
+                                name="role"
+                                value="RESPONSABLE"
+                                id="DeliveryPriority"
+                                class="peer hidden [:checked_+_label_svg]:block"
+                        />
+
+                        <label
+                                for="DeliveryPriority"
+                                class="block cursor-pointer rounded-lg border border-gray-100 p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500"
+                        />
+                        <h:graphicImage class="w-28 h-28 rounded mx-2 "
+                                        value="https://www.livermets.org/static/assets/img/team/avatar.svg"
+                                        alt="Extra large avatar">
+                            <div class="flex items-center mt-2 justify-between">
+                                <p class="text-gray-700  align-center text-center w-full">Responsable</p>
+
+                                <svg
+                                        class="hidden h-8 w-8 text-blue-600"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                >
+                                    <path
+                                            fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </div>
+
+                        </h:graphicImage>
+
+                    </div>
+                </fieldset>
+                <div class="relative w-full mt-6 space-y-8">
+                    <div class="relative">
+                        <label class="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">Email
+                        </label>
+                        <h:inputText type="text"
+                                     class="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+                                     placeholder="Email"
+                                     name="email"/>
+
+                    </div>
+                    <div class="relative">
+                        <label class="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">Mot De
+                            Pass</label>
+                        <h:inputText type="password"
+                                     class="block w-full px-4 py-4 mt-2 text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
+                                     placeholder="Mot De pass"
+                                     name="pass"/>
+                    </div>
+
+                    <div class="relative">
+                        <button
+                                type="submit"
+                                class="inline-block w-full px-5 py-4 text-xl font-medium text-center text-white transition duration-200 bg-blue-400 rounded-lg hover:bg-blue-600 ease">
+                            Login
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+        </div>
+
+    </div>
+</h:form>
+
+
+
+        </h:body>
+
+        </html>
