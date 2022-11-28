@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/gestion_livraison/src/main/webapp/index.xhtml" value="file://$PROJECT_DIR$/gestion_livraison/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/gestion_livraison/src/main/webapp/views/admin/dashboard.xhtml" value="file://$PROJECT_DIR$/gestion_livraison/src/main/webapp/views/admin" />
       </map>
     </option>
   </component>
