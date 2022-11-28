@@ -25,13 +25,9 @@ public class AdminBeans implements Serializable {
 
     public String login() throws Exception {
         if (new AuthService().authAdmin(this.admin)) {
-            System.out.println("dazt");
-
-        } else {
-            System.out.println("madaztsh");
+            return "/views/admin/dashboard.xhtml";
         }
-
-        return "index.xhtml";
+        return "/views/admin/login.xhtml";
 
     }
 
