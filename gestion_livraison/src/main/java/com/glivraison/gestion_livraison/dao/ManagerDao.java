@@ -5,6 +5,8 @@ import com.glivraison.gestion_livraison.util.Hash;
 import com.glivraison.gestion_livraison.util.JPA;
 import jakarta.persistence.Query;
 
+import java.util.List;
+
 public class ManagerDao {
 
 
@@ -25,5 +27,22 @@ public class ManagerDao {
             return manager1;
         }
         return null;
+    }
+
+    public List<Manager> findAll() {
+        Query query = JPA.entityManager().createQuery("select manager from Manager manager  ORDER BY manager.id");
+        return query.getResultList();
+    }
+
+    public Manager save(Manager manager) {
+        JPA.serv(em -> em.persist(manager));
+        return manager;
+    }
+
+    public Manager delete(long id) {
+        Manager manager = JPA.entityManager().find(Manager.class, id);
+        JPA.serv(em -> em.remove(manager));
+
+        return manager;
     }
 }
